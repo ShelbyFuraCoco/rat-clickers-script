@@ -7,7 +7,7 @@ local PhantomForcesWindow = Library:NewWindow("Rat Clickers")
 local KillingCheats = PhantomForcesWindow:NewSection("Main")
  
 KillingCheats:CreateToggle("Auto Click", function(value)
-while wait(0.0001) do
+while wait(0.001) do
 game:GetService("ReplicatedStorage"):WaitForChild("ClickEvent"):FireServer()
 end
 end)
