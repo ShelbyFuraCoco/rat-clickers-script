@@ -2,7 +2,7 @@
 
 local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
  
-local PhantomForcesWindow = Library:NewWindow("Rat Clickers")
+local PhantomForcesWindow = Library:NewWindow("Rat Clickers UGC")
  
 local KillingCheats = PhantomForcesWindow:NewSection("Main")
  
@@ -67,6 +67,22 @@ end)
 
 local KillingCheats = PhantomForcesWindow:NewSection("Ban Risk⚠️")
 
+KillingCheats:CreateToggle("Auto Collect Cheese", function(value)
+    _G.Loop = true
+while _G.Loop and task.wait(5) do
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    
+    local parts = game.Workspace:GetDescendants()
+    for _, part in ipairs(parts) do
+        if part:IsA("BasePart") and part.Name == "RespawningCoin" then 
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+            part.CFrame = CFrame.new(humanoidRootPart.Position)
+        end
+    end
+end
+end)
+
 KillingCheats:CreateButton("Auto Obby", function()
     local function teleportToNamedPart(partName)
         local parts = game.Workspace:GetDescendants()
@@ -90,6 +106,6 @@ end)
 
 local KillingCheats = PhantomForcesWindow:NewSection("Credits")
 
-KillingCheats:CreateButton("Say thanks to God, not to me", function()
+KillingCheats:CreateButton("Made by Pedroga7008", function()
 print("love God because he love you")
 end)
